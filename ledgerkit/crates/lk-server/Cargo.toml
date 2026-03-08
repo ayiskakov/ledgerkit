@@ -1,0 +1,21 @@
+[package]
+name = "lk-server"
+description = "HTTP server wrapper for ledgerkit"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+lk-types = { workspace = true }
+lk-core = { workspace = true }
+lk-webhooks = { workspace = true }
+lk-store = { workspace = true }
+lk-observability = { workspace = true }
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+uuid = { workspace = true }

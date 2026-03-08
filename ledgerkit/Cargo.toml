@@ -1,0 +1,72 @@
+[workspace]
+members = [
+    "crates/lk-types",
+    "crates/lk-core",
+    "crates/lk-connectors",
+    "crates/lk-webhooks",
+    "crates/lk-store",
+    "crates/lk-simulator",
+    "crates/lk-cli",
+    "crates/lk-observability",
+    "crates/lk-server",
+    "crates/lk-examples",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/ledgerkit/ledgerkit"
+rust-version = "1.75"
+
+[workspace.dependencies]
+# Internal crates
+lk-types = { path = "crates/lk-types" }
+lk-core = { path = "crates/lk-core" }
+lk-connectors = { path = "crates/lk-connectors" }
+lk-webhooks = { path = "crates/lk-webhooks" }
+lk-store = { path = "crates/lk-store" }
+lk-simulator = { path = "crates/lk-simulator" }
+lk-observability = { path = "crates/lk-observability" }
+lk-server = { path = "crates/lk-server" }
+lk-cli = { path = "crates/lk-cli" }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+async-trait = "0.1"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# HTTP
+axum = "0.7"
+reqwest = { version = "0.12", features = ["json"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["trace", "cors"] }
+
+# Observability
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+opentelemetry = "0.22"
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+
+# Errors
+thiserror = "1"
+anyhow = "1"
+
+# Crypto
+hmac = "0.12"
+sha2 = "0.10"
+hex = "0.4"
+
+# Time/IDs
+time = { version = "0.3", features = ["serde", "formatting", "parsing"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Testing
+wiremock = "0.6"
